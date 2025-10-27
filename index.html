@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 — Costume Not Found</title>
+  <meta name="theme-color" content="#0b0f0b" />
+  <style>
+    :root {
+      --bg: #0b0f0b;
+      --fg: #a8ffb0;
+      --dim: #6ecf7a;
+      --accent: #c9ffd0;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: grid;
+      place-items: center;
+      background: radial-gradient(1200px 600px at 50% 0%, #0f1a0f 0%, var(--bg) 60%);
+      color: var(--fg);
+      font: 16px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      overflow: hidden;
+    }
+    .terminal {
+      width: min(900px, 92vw);
+      border: 1px solid #143b14;
+      border-radius: 12px;
+      background: linear-gradient(#0f160f, #0a120a);
+      box-shadow: 0 20px 60px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.03);
+      position: relative;
+    }
+    .titlebar {
+      height: 44px;
+      display: flex; align-items: center; gap: 10px;
+      padding: 0 14px;
+      border-bottom: 1px solid #143b14;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+    .path { color: var(--dim); font-size: 13px; opacity: .85; }
+    pre {
+      margin: 0; padding: 18px;
+      white-space: pre-wrap; word-break: break-word;
+    }
+    .muted { color: var(--dim); }
+    .blink::after {
+      content: "▋";
+      margin-left: 4px; animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .scanline {
+      content: ""; position: absolute; inset: 0;
+      background: repeating-linear-gradient(to bottom, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 2px, transparent 4px);
+      mix-blend-mode: overlay; pointer-events: none;
+    }
+    a { color: var(--accent); }
+    footer {
+      position: absolute; bottom: 6px; right: 10px;
+      font-size: 12px; color: #84d88f; opacity: .8;
+    }
+  </style>
+</head>
+<body>
+  <main class="terminal" role="main" aria-label="Terminal window: 404">
+    <div class="titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="path">~/PartyPlan.java — johanne@oslomet</span>
+    </div>
+    <pre>
+user="Johanne", semester=3/6, campus="OsloMet"
+// 404 costume handler
+
+[00:00:00] init  ▶ ok
+[00:00:01] scan  ▶ wardrobe: 0 item(s)
+[00:00:02] plan  ▶ profile="low-effort"
+[00:00:03] fail  ▶ <strong>ERROR 404: costume_not_found</strong>
+
+Try <span class="muted">PROFILE=creative</span> or bring-a-hat to continue<span class="blink"></span>
+    </pre>
+    <div class="scanline"></div>
+    <footer>© Johanne — Halloween 2025</footer>
+  </main>
+</body>
+</html>
